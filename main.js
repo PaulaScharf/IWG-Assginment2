@@ -11,7 +11,7 @@ function loadPlaces() {
 				resolve(osmtrees.features);
 			}
 		};
-		xhttp.open("GET", "osmtrees.geojson", true);
+		xhttp.open("GET", "osmtrees_small.geojson", true);
 		xhttp.send();
 	});
 }
@@ -28,7 +28,7 @@ window.onload = () => {
 		icon.setAttribute('name', place.properties.name);
 		icon.setAttribute('src', 'img/map-marker.png');
 		icon.setAttribute('look-at', '[gps-camera]');
-		// icon.setAttribute('scale', '20, 20'); // if you want for debugging
+		icon.setAttribute('scale', '20, 20'); // if you want for debugging
 		scene.appendChild(icon);
 	});
 });
