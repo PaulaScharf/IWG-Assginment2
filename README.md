@@ -2,4 +2,4 @@
 Interaction with Geoinformation: Individual Assignment 2
 
 ## Ideas for Interaction
-- TODO
+- show distance, when hovering over tree
