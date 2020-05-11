@@ -28,6 +28,7 @@ window.onload = () => {
 		icon.setAttribute('name', place.properties.name);
 		icon.setAttribute('src', 'img/map-marker.png');
 		icon.setAttribute('look-at', '[gps-camera]');
+		icon.setAttribute('show-distance-on-gaze', '');
 		icon.setAttribute('scale', '20, 20'); // if you want for debugging
 		scene.appendChild(icon);
 	});
