@@ -1,3 +1,7 @@
+/**
+ * Load and interpret the trees from the geoJson file.
+ * @returns promise to return a list of trees
+ */
 function loadPlaces() {
 	return new Promise(function(resolve, reject) {
 		var xhttp = new XMLHttpRequest();
@@ -11,25 +15,27 @@ function loadPlaces() {
 				resolve(osmtrees.features);
 			}
 		};
-		xhttp.open("GET", "osmtrees_small.geojson", true);
+		xhttp.open("GET", "assets/osmtrees_small.geojson", true);
 		xhttp.send();
 	});
 }
 
 window.onload = () => {
 	loadPlaces()
-		.then(function(places) {
+		.then(function(trees) {
 	scene = document.querySelector('a-scene');
-	places.forEach((place) => {
-		const latitude = place.geometry.coordinates[1];
-		const longitude = place.geometry.coordinates[0];
+	// for each tree initialize an icon for the AR scene
+	trees.forEach((tree) => {
+		const latitude = tree.geometry.coordinates[1];
+		const longitude = tree.geometry.coordinates[0];
 		const icon = document.createElement('a-image');
 		icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
-		icon.setAttribute('name', place.properties.name);
-		icon.setAttribute('src', 'img/map-marker.png');
+		icon.setAttribute('name', tree.properties.name);
+		// visualize the tree using the model from assignment 1
+		icon.setAttribute('gltf-model', 'assets/tree.gltf');
 		icon.setAttribute('look-at', '[gps-camera]');
 		icon.setAttribute('show-distance-on-gaze', '');
-		icon.setAttribute('scale', '20, 20'); // if you want for debugging
+		icon.setAttribute('scale', '5, 5'); // if you want for debugging
 		scene.appendChild(icon);
 	});
 });
