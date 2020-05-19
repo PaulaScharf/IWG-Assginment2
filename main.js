@@ -35,6 +35,7 @@ window.onload = () => {
 		icon.setAttribute('gltf-model', 'assets/tree.gltf');
 		icon.setAttribute('look-at', '[gps-camera]');
 		icon.setAttribute('show-distance-on-gaze', '');
+		icon.setAttribute('change-color-on-touch', '');
 		icon.setAttribute('scale', '5, 5'); // if you want for debugging
 		scene.appendChild(icon);
 	});
