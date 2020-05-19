@@ -11,3 +11,7 @@ Interaction with Geoinformation: Individual Assignment 2
 ## Bug report
 - sometimes the click-interaction is triggered, when gazing a tree
 - the gaze-interaction is triggered, when clicking a tree
+
+---
+
+### [View on Github](https://github.com/PaulaScharf/IWG-Assginment2)
